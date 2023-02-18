@@ -1,19 +1,19 @@
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.여기에 깃허브 유저 이름'
-
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
     namespace 'com.loomtok.chatkit'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         minSdk 26
-        targetSdk 32
-
+        targetSdk 33
+        aarMetadata {
+            minCompileSdk = 29
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -31,6 +31,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    testFixtures {
+        enable = true
+    }
+
 }
 
 dependencies {
